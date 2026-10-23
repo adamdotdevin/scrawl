@@ -5276,14 +5276,16 @@ checksum = "6c20b6793b5c2fa6553b250154b78d6d0db37e72700ae35fad9387a46f487c97"
 [[package]]
 name = "rune"
 version = "0.0.1"
-source = "git+https://github.com/anomalyco/rune?rev=548d140a65193d4a42bdea7b31f09257d7d3c015#548d140a65193d4a42bdea7b31f09257d7d3c015"
+source = "git+https://github.com/anomalyco/rune?rev=b6783ae7a72613b2e51813d09009e7a0b7ff2fbe#b6783ae7a72613b2e51813d09009e7a0b7ff2fbe"
 dependencies = [
  "arboard",
  "blake3",
  "block2 0.5.1",
  "bytemuck",
+ "futures-util",
  "half",
  "image",
+ "libc",
  "libloading",
  "objc2 0.5.3",
  "objc2 0.6.5",
@@ -5299,9 +5301,12 @@ dependencies = [
  "portable-atomic",
  "raw-window-handle",
  "rune-motion",
+ "serde",
  "serde_json",
  "swash",
  "taffy 0.15.0",
+ "tokio",
+ "unicode-segmentation",
  "wayland-backend",
  "wayland-client",
  "wayland-protocols",
@@ -5311,13 +5316,14 @@ dependencies = [
  "winit",
  "x11rb",
  "xkbcommon",
+ "zbus",
  "zeroize",
 ]
 
 [[package]]
 name = "rune-motion"
 version = "0.1.0"
-source = "git+https://github.com/anomalyco/rune?rev=548d140a65193d4a42bdea7b31f09257d7d3c015#548d140a65193d4a42bdea7b31f09257d7d3c015"
+source = "git+https://github.com/anomalyco/rune?rev=b6783ae7a72613b2e51813d09009e7a0b7ff2fbe#b6783ae7a72613b2e51813d09009e7a0b7ff2fbe"
 
 [[package]]
 name = "rust-embed"
@@ -6411,8 +6417,22 @@ dependencies = [
  "libc",
  "mio",
  "pin-project-lite",
+ "signal-hook-registry",
  "socket2",
+ "tokio-macros",
+ "tracing",
  "windows-sys 0.61.2",
+]
+
+[[package]]
+name = "tokio-macros"
+version = "2.7.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "78773a2a397f451582ce068015985c33193cf6dea8b74d2a639fe457b2f07b0e"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 3.0.6",
 ]
 
 [[package]]
@@ -8072,6 +8092,7 @@ dependencies = [
  "rustix 1.1.5",
  "serde",
  "serde_repr",
+ "tokio",
  "tracing",
  "uds_windows",
  "uuid",
